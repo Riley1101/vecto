@@ -1,0 +1,35 @@
+.promotion__card{
+    background-color: var(--clr-info);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding-inline: var(--spacing-2xl);
+    position: relative;
+    overflow: hidden;
+}
+.promotion__card__title{
+    margin: 0;
+    font-size: calc(var(--text-xl) + .5em );
+    line-height: 1.;
+    font-weight: bold;
+}
+
+.promotion__card__cta{
+    all: unset;
+    width: max-content;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+    border-radius: var(--radius);
+    cursor: pointer;
+    
+}
+
+.promotion__card__vector{
+    width: 600px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
