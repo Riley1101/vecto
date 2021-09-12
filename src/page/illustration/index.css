@@ -1,0 +1,55 @@
+.ill{
+    width: 70%;
+    margin-inline: auto;
+}
+
+.ill__form{
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: flex-end;
+}
+
+.ill__form button{
+    all: unset;
+    cursor: pointer;
+}
+
+.ill__form input{
+    padding: .5em var(--spacing-md);
+    border-radius: var(--radius-lg);
+    border:solid 1px var(--clr-dark);
+    outline: none;
+}
+
+.ill__heading{
+
+    font-size: var(--text-xl);
+}
+
+
+.ill__cards{
+    width: 100%;
+    margin-top: var(--spacing-xl);
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: var(--spacing-md);
+}
+
+
+.ill__more{
+    margin-block: var(--spacing-xl);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.ill__more button{
+    all: unset;
+    padding: .5em var(--spacing-md);
+    background-color: var(--clr-primary);
+    color:var(--clr-light);
+    border-radius: var(--radius);
+    cursor: pointer;
+}

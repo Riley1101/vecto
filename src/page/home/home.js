@@ -1,12 +1,18 @@
 import React from 'react'
+import { useQuery, gql } from '@apollo/client'
 import './home.css'
 import bg from '../../static/bg.svg'
 import Card from '../../componnet/card/card'
 import Promotion from '../../componnet/promotion'
+import Modal from '../../componnet/modal'
+import { HOmeVector } from '../../utils/query'
 export default function Home() {
+
+
+    let { data, loading, error } = useQuery(HOmeVector);
+
     return (
         <>
-
             <section className='hero'>
                 <div className="intro">
                     <h1 className="intro__header">Start building ideas <br /> project with cool vectors <br /> form Vecto</h1>
@@ -19,7 +25,6 @@ export default function Home() {
                     </img>
                 </div>
             </section>
-
             <section className='showcase'>
                 <div className='showcase__container'>
                     <div className="tags">
@@ -30,20 +35,22 @@ export default function Home() {
                             <li className='tags__list__item'>Food</li>
                             <li className='tags__list__item'>Nature</li>
                             <li className='tags__list__item'>Food</li>
-
                         </ul>
                     </div>
                     <h2 className='showcase__title'>Showcase</h2>
                     <div className='cards'>
+                        {
+                            loading && <h1>Loading ...</h1>
+                        }
+                        {
+                            error && <h1>Error something</h1>
+                        }
+                        {
+                            data && data.vectors.map(e =>
+                                <Card data={e} key={e.id} />
+                            )
+                        }
 
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
                     </div>
                 </div>
 
