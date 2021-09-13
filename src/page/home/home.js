@@ -1,16 +1,18 @@
 import React from 'react'
-import { useQuery, gql } from '@apollo/client'
 import './home.css'
 import bg from '../../static/bg.svg'
 import Card from '../../componnet/card/card'
 import Promotion from '../../componnet/promotion'
 import Modal from '../../componnet/modal'
-import { HOmeVector } from '../../utils/query'
+import { Init } from './hooks'
+import PremiumCard from '../../componnet/premium_card'
+
+
 export default function Home() {
 
 
-    let { data, loading, error } = useQuery(HOmeVector);
-
+    const { tag, data, loading, error, setTag } = Init();
+    console.log(data)
     return (
         <>
             <section className='hero'>
@@ -29,12 +31,10 @@ export default function Home() {
                 <div className='showcase__container'>
                     <div className="tags">
                         <ul className='tags__list'>
-                            <li className='tags__list__item tags__list__item--active'>Space</li>
-                            <li className='tags__list__item'>Food</li>
-                            <li className='tags__list__item'>Nature</li>
-                            <li className='tags__list__item'>Food</li>
-                            <li className='tags__list__item'>Nature</li>
-                            <li className='tags__list__item'>Food</li>
+                            <li className='tags__list__item tags__list__item--active' onClick={() => setTag("all")}>All</li>
+                            {
+                                data && data.tags.map(item => <li onClick={() => setTag(Number(item.id))} className='tags__list__item' key={item.id}>{item.name} </li>)
+                            }
                         </ul>
                     </div>
                     <h2 className='showcase__title'>Showcase</h2>
@@ -43,7 +43,7 @@ export default function Home() {
                             loading && <h1>Loading ...</h1>
                         }
                         {
-                            error && <h1>Error something</h1>
+                            error && <h1>Error something{console.log(error)}</h1>
                         }
                         {
                             data && data.vectors.map(e =>
@@ -58,12 +58,27 @@ export default function Home() {
 
             <section className='promotion'>
                 <div className='promotion__container'>
-
-
                     <Promotion />
                 </div>
             </section>
+            <section className="premium">
+                <div className='premium__container'>
+                    <h2 className="premium__heading">Premium Packs</h2>
+                    <div className='premium__cards'>
+                        <PremiumCard />
+                        <PremiumCard />
+                        <PremiumCard />
+                        <PremiumCard />
+                        <PremiumCard />
+                        <PremiumCard />
+                        <PremiumCard />
+                        <PremiumCard />
+                        <PremiumCard />
+                        <PremiumCard />
+                    </div>
+                </div>
 
+            </section>
 
 
         </>
