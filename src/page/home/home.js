@@ -65,16 +65,10 @@ export default function Home() {
                 <div className='premium__container'>
                     <h2 className="premium__heading">Premium Packs</h2>
                     <div className='premium__cards'>
-                        <PremiumCard />
-                        <PremiumCard />
-                        <PremiumCard />
-                        <PremiumCard />
-                        <PremiumCard />
-                        <PremiumCard />
-                        <PremiumCard />
-                        <PremiumCard />
-                        <PremiumCard />
-                        <PremiumCard />
+                        {
+                            data && data.premiums.map(item => <PremiumCard data={item} key={item.id} />)
+                        }
+
                     </div>
                 </div>
 

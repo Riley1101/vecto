@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { HOmeVector } from '../../utils/query'
-import { useQuery, } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 
 const Init = () => {
     const [tag, setTag] = useState('all')

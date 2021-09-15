@@ -12,7 +12,7 @@
 }
 
 .card::before{
-    content: 'free';
+    content: attr(dataStatus);
     position: absolute;
     top: 1em;
     left: 1em;

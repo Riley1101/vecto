@@ -16,6 +16,15 @@ export const HOmeVector = gql
       name
     }
 
+    premiums{
+      name
+      id
+      profile{
+        url
+      }
+      assert
+    }
+    
 }`;
 
 export const IllData = gql
@@ -28,3 +37,16 @@ vectors(limit:20,where:{premium:false}){
   }
 }
 }`;
+
+export const GetOnePre = gql
+  `query GetOnePremium($id:ID!){
+  premium(id:$id){
+    name
+    profile{
+      url
+    }
+    description
+    id
+    
+  }
+  }`;

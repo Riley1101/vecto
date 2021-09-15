@@ -1,11 +1,14 @@
 import React from 'react'
 import './index.css'
-export default function PremiumCard() {
+import api_end from '../../api'
+import { useHistory } from 'react-router'
+export default function PremiumCard({ data }) {
+    const history = useHistory();
     return (
-        <div className='premium__card'>
+        <div onClick={() => history.push(`/detail/${data.id}`)} className='premium__card' style={{ backgroundImage: `url(${api_end}${data.profile.url})` }}>
             <div className='premium__card__text'>
-                <h3>Premium 3D drawings</h3>
-                <p>with sketch library</p>
+                <h3>{data.name}</h3>
+                <p>{data.assert}</p>
             </div>
         </div>
     )
